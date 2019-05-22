@@ -5,16 +5,17 @@ function Hooks(props) {
 
   //call useState [value, function to set the value] = the initial value  
   const [count, setCount] = useState(props.initialValue)
+  const [text, setText] = useState("")
 
-
-  console.log(props)
-  console.log(count)
+  
+  console.log(text)
   return (
     <div className="App">
-      <h1>The Current count is {count} </h1>
+      <h1>The Current {text || "number"} is {count} </h1>
       <button onClick={() => setCount(count + 1)}>Add 1</button>
       <button onClick={() => setCount(props.initialValue)}>Reset Counter</button>
       <button onClick={() => setCount(count - 1)}>Sub 1</button>
+      <input value={text} onChange={(e) => setText(e.target.value)} />
     </div>
   );
 }
